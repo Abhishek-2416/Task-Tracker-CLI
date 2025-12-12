@@ -1,0 +1,4 @@
+Complete the statefulset deployments
+Continue with the changes that I started for the dockerBasicService
+Understand the oryn codebase
+testing

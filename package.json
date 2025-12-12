@@ -1,0 +1,25 @@
+{
+  "name": "task-tracker-cli",
+  "version": "1.0.0",
+  "description": "This is a task tracker or a todo app but on the CLI",
+  "homepage": "https://github.com/Abhishek-2416/Task-Tracker-CLI#readme",
+  "bugs": {
+    "url": "https://github.com/Abhishek-2416/Task-Tracker-CLI/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhishek-2416/Task-Tracker-CLI.git"
+  },
+  "license": "ISC",
+  "author": "Abhishek Alimchandani",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "commander": "^14.0.2",
+    "express": "^5.2.1",
+    "path": "^0.12.7"
+  }
+}
