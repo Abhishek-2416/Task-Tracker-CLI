@@ -17,7 +17,7 @@ program
 program.command('list')
     .description('This is to list all the tasks on the list')
     .action(() => {
-        const filePath = path.join(__dirname,"tasks.txt");
+        const filePath = path.join(__dirname,"tasks.json");
         let list = fs.readFileSync(filePath,"utf8");
         console.log(list);
     });
@@ -26,14 +26,20 @@ program.command("add")
     .description("This is to add a task to your exisiting list")
     .argument('<string>', 'task to be added')
     .action((task) => {
-        const filePath = path.join(__dirname,"tasks.txt");
+        const filePath = path.join(__dirname,"tasks.json");
 
-        try{
-            fs.appendFileSync(filePath,task);
-            console.log(`${task} was added to the list successfully`);
-        }catch(err){
-            console.log(err);
-        }
+        let tasks = [];
+        const tasksLength = tasks.length;
+        console.log(tasksLength);
+        let prevTaskId = tasks.length === 0 ? 0 : tasks[tasksLength - 1].id;
+        console.log(tasksLength);
+        tasks.push({
+            id: prevTaskId + 1,
+            title: task,
+            done: false
+        });
+        prevTaskId += 1;
+        console.log(tasks);
     });
 
 
