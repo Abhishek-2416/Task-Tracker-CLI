@@ -128,7 +128,6 @@ program
         const taskId = Number(id);
 
         const specificTask = tasks.find(t => t.id === taskId);
-        console.log(specificTask);
         if(!specificTask){
             console.error(`Task not found (ID: ${taskId})`);
             return;
@@ -162,7 +161,7 @@ program
         specificTask.status = "in-progress";
         specificTask.updatedAt = now;
 
-        saveTasks(specificTask);
+        saveTasks(tasks);
     });
 
 // Mark-done
@@ -184,7 +183,7 @@ program
         specificTask.status = "done";
         specificTask.updatedAt = now;
 
-        saveTasks(specificTask);
+        saveTasks(tasks);
     });
 
 //List
@@ -193,12 +192,30 @@ const list_command = program
   .description("List tasks by status")
   .action((status) => {
     const valid = ["done", "todo", "in-progress"];
+    const tasks = loadTasks();
 
     if(status === undefined){
-        console.log("We will display all the tasks");
+        tasks.forEach(element => {
+            console.log(element.description);
+        });
     }else if(!valid.includes(status)){
         console.error(`Invalid status ${status}`);
         list_command.help();
+    }else if(status === "done"){
+        const completedTasks = tasks.filter(element => element.status === "done");
+        completedTasks.forEach(element => {
+            console.log(element.description);
+        });
+    }else if(status === "todo"){
+        const completedTasks = tasks.filter(element => element.status === "todo");
+        completedTasks.forEach(element => {
+            console.log(element.description);
+        });
+    }else if(status === "in-progress"){
+        const completedTasks = tasks.filter(element => element.status === "in-progress");
+        completedTasks.forEach(element => {
+            console.log(element.description);
+        });
     }
   });
 
