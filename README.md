@@ -52,7 +52,7 @@ Task-Tracker-CLI/
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Abhishek-2416/Task-Tracker-CLI.git
 cd Task-Tracker-CLI
 ```
 
